@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="./style/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png" type="image/x-icon"  />
+    
+    <title>Como Criar Um Bot Para Discord</title>
+</head>
+
+<body>
+    <div class="div-body">
+        <section title="começo">
+            <h1 class="titulo">Como criar um Bot para o Discord que consuma uma Api de finanças</h1>
+            <h2>Introdução <span class="emoji">📌</span></h2>
+
+            <p>
+                Nesse tutorial vamos criar e codificar um bot para o <strong>Discord</strong>.
+                Vamos fazer ele exibir<br> informaçoes que vão ser puxadas diretamente de uma api externa. E vamos apenas
+                usar<br> <strong>Node JS</strong> é a <strong>Api hgbrasil</strong>.<br><br>
+                você vai aprender a consumir uma api com Node JS, Aprendera a manipular jsons,<br> é tambem a como utilizar modulos do Node JS
+            </p>
+            <h2>Vamos Começar....</h2>
+
+            <p>Vamos começar, mas antes você precisa ter as seguintes ferramentas:</p>
+            <ul>
+                <li id="lista1"><a href="https://nodejs.org/pt-br/">Node</a> (Neste tutorial vamos utilizar a versão 15.12.0)</li>
+                <li id="lista2">Um Editor de codigo (Vs code, Atom, brackets....)</li>
+                <li>Uma conta no <a href="https://discord.com/">Discord</a>.</li>
+            </ul>
+        </section>
+
+        <section title="bot-creation">
+            <h2>Criando O Bot <span class="emoji">🤖</span></h2>
+
+            <p>
+                Bom agora vamos colocar a mão na massa e criar nosso <strong>Bot</strong>.<br>
+                Primeiro: Vamos entrar no site do 
+                    <a href="https://discord.com/developers/applications">
+                        discord para developers
+                    </a> 
+                você deve ver esse painel.
+
+                <img src="./images/Passo1/passo1.png">
+            </p>
+
+            <p>
+                <br>Em seguida clique em <strong>"New Application"</strong>, Que esta localizado no canto superior<br>
+                direito da pagina.<br><br>
+
+                Ira aparecer a seguinte mensagem: <br>
+
+                <img id="passo1_img2" src="./images/Passo1/passo1_img2.png">
+            </p>
+
+            <p>
+                <br>No campo escrito <strong>"Name"</strong> Insira o nome da sua aplicação, Não se preocupe o nome da  aplicação<br> 
+                não sera o nome do seu Bot. Depois de inserir um nome você deve clicar em<br>
+                <strong>"Create"</strong> Depois de clicar deve aparecer o seguinte painel:
+
+                <img src="./images/Passo1/passo1_img3.png">
+            </p>
+
+            <p>
+                <br>Pronto criamos nossa aplicação agora vamos de fato criar nosso Bot.<br>
+                E pra isso Vamos clicar em <strong>"Bot"</strong> na barra de navegação a esquerda da pagina.<br>
+                Depois de clicar ira aparecer este painel
+
+                <img src="./images/Passo1/passo1_img4.png">
+            </p>
+
+            <p>
+                <br>Depois vamos clicar em <strong>"Add Bot"</strong> no canto direito da pagina, Em seguida ira aparecer uma mensagem<br>
+                Clique em <strong>"Yes, do it"</strong>, você sera redirecionado para o seguinte painel
+
+                <img src="./images/Passo1/passo1_img5.png">
+            </p>
+
+            <p>
+                <br>Aqui você ja pode customizar seu Bot adicionando um nome é foto.<br><br>
+
+                você deve clicar em <strong>"Click to Reveal Token"</strong>, do lado da imagem do seu bot, Depois de<br>
+                clicado ira aparecer uma sequencia de letras e numeros.<br>
+                Guarde pois vamos precisar disso mais tarde.<br><br>
+            </p>
+
+            <p>
+                Vamos navegar ate a aba <strong>"OAuth2"</strong> na barra de navegação a esquerda.<br><br>
+                Ja na aba "OAuth2"<br> Vamos selecionar a Opção <strong>"Bot"</strong> Logo em seguida ira aparecer um novo painel abaixo, selecione tambem<br>
+                a opção <strong>"Administrator"</strong><br>
+
+                <img src="./images/Passo1/passo1_img6.png">
+            </p>
+
+            <p>
+                <br>Depois disso sera gerado um convite para o Bot, Copie e cole no seu navegador.<br><br>
+
+                Agora você ira adicionar o Bot no seu <strong>Servidor</strong>, Depois de ter colado o link ira aparecer o seguinte painel:<br>
+
+                <img src="./images/Passo1/passo1_img7.png">
+
+                <br>Clique em <strong>"Selecione um servidor"</strong>, então escolha o servidor que o Bot devera ser adicionado.<br>
+                Depois de selecionar o servidor, verifique se o Bot foi adicionado.<br>
+
+                <img id="passo1_img8" src="images/Passo1/passo1_img8.png">
+
+                <br><strong>Se Tudo deu certo vamos Começar a codificar nosso Bot agora.</strong>
+            </p>
+
+        </section>
+
+        <section title="Bot-configuration">
+            <h2>Codificar O Bot <span class="emoji">👩‍💻</span></h2>
+
+            <p>
+                Primeiro vamos criar uma pasta para colocar nosso projeto.<br><br>
+                Depois vamos entrar na pasta criada, depois crie um arquivo chamado <strong>"config.json".</strong><br><br>
+
+                O <strong>config.json</strong> sera usado para armazenar nosso <strong>"Bot Token"</strong> e nosso <strong>"prefix"</strong>.<br>
+
+                <img id="passo2_img1" src="./images/passo2/passo2_img1.png">
+            </p>
+
+            <p>
+                <br>O que é <strong>"Bot Token"</strong> ? Bot token e o codigo que vamos usar para o <strong>Discord</strong> nos Identificar<br>
+                é nosso bot ter acesso ao Discord.<br><br>
+
+                <br>O que é <strong>Prefix</strong> é tudo que vem antes do comando do Bot.<br><br>
+
+                Assim quando a messagem do autor estiver com o prefixo o Bot entendera que é para ele<br> executar uma
+                ação.<br>
+
+                <img id="prefix" src="./images/prefix.png"><br>
+            </p>
+
+            <p>
+                <br>Ja no arquivo <strong>"config.json"</strong> vamos definir o <strong>"Token"</strong> do nosso Bot<br>
+                que pegamos no primeiro passo<br><br>
+
+                E tambem vamos definir o prefixo do nosso Bot<br>
+
+                <img id="passo2_img2" src="./images/passo2/passo2_img2.png">
+            </p>
+
+            <p>
+                <br>Agora vamos criar outro arquivo chamado <strong>"index.js"</strong>, Onde vamos guarda a parte<br>
+                principal do nosso codigo.<br><br>
+
+                Agora vamos instalar todas as dependencias do <strong>Node</strong> para esse projeto.<br><br>
+
+                Com o terminal aberto digite o comando <strong>"npm init -y"</strong><br>
+
+                <img class="passo2_img" src="./images/passo2/passo2_img3.png">
+            </p>
+
+            <p>
+                <br>Depois de excutar esses comandos você vera que se criou um arquivo chamado
+                <strong>"package.json"</strong>.<br><br>
+
+                Nele ficara armazenado todas as configurações do nosso projeto.<br><br>
+
+                Agora vamos instalar o <strong>modulos</strong> necessarios para execução do nosso projeto.<br>
+                No terminal digite:<br>
+
+                <img class="passo2_img" src="./images/passo2/passo2_img4.png">
+            </p>
+
+            <p>
+                <br>Depois de executar esses comandos ja estamos prontos para <strong>Começar</strong> a codar.<br><br>
+
+                Abra o arquivo <strong>"index.js"</strong>, vamos agora fazer os <strong>"requires"</strong> dos modulos que instalamos.<br>
+                E tambem vamos chamar o nosso Token e prefixo que colocamos no <strong>"config.json"</strong><br>
+
+                <img id="passo2_img5" src="/images/passo2/passo2_img5.png">
+            </p>
+
+            <p>
+                <br>Depois de feito, vamos "chamar" o nosso Bot criando um constante e atribuindo<strong>"new discord.Client();"</strong><br>
+                tambem vamos atribuir <strong>"bot.config = config."</strong><br>
+
+                <img id="passo2_img5" src="./images/passo2/passo2_img6.png">
+            </p>
+
+            <p>
+                <br>Depois de feito, agora vamos criar uma pasta no nosso projeto chamada
+                <strong>"events".</strong><br><br>
+
+                Nela ficara armazenado os eventos do nosso Bot<br><br>
+
+                Agora vamos criar um arquivo chamado <strong>"message.js"</strong>, Nele vamos colocar os seguintes codigos<br>
+
+                <img id="passo2_img7" src="./images/passo2/passo2_img7.png">
+            </p>
+
+            <p>
+                <br><strong>O que esse codigo faz ?</strong>, Ele primeiro exporta esse modulo <br><br>
+
+                Depois faz uma verificação caso o autor da mensagem seja um outro bot ele ignora.<br><br>
+
+                Ele tambem verifica se a mensagem contem o prefixo, alem de outras coisas um pouco<br>
+                mais tecnicas para o bot conseguir mandar a mensagem.<br><br>
+
+                Depois de escrever esse codigo voltamos para o index onde vamos agora chamar esse evento.<br><br>
+                Ja no index vamos digitar os seguintes codigos:<br>
+
+                <img id="passo2_img7" src="images/passo2/passo2_img8.png">
+            </p>
+
+            <p>
+                <br><strong>O que esse codigo faz ?</strong> Ele primeiro le o diretorio <strong>"events"</strong><br><br>
+
+                Depois passamos uma função com dois parametros <strong>(err, file)</strong> Se tiver algum erro ele retorna.<br><br>
+
+                Depois criamos uma constante pegando os arquivos dentro de <strong>"events"</strong><br><br>
+
+                E por fim ao bot ser ligado ele chama o nosso evento.<br>
+            </p>
+
+        <section title="Api">
+            <h2>Agora Vamos Consumir A Api <span class="emoji">⚙️</span></h2>
+
+            <p>
+                Agora vamos criar uma pasta chamada <strong>"commands"</strong>, dentro dela vamos criar o arquivo <strong>bitcoin.js</strong><br><br>
+
+                Agora vamos entrar no site da 
+                    <a href="https://console.hgbrasil.com/keys">
+                        <strong>Api hgbrasil</strong>
+                    </a> e criarmos nossa chave.<br>
+
+                apenas crie uma conta e clique em <strong>"Criar Nova Chave"</strong>.<br>
+
+                <img src="./images/api.jpg">
+            </p>
+
+            <p>
+                <br>Agora vamos começar a consumir a Api, Entre no arquivo que acabamos de criar.<br><br>
+
+                Agora vamos separar em partes, Primeiro vamos fazer a <strong>request</strong> na Api da seguinte forma:<br>
+
+                <img src="./images/passo2/passo2_img9.png">
+            </p>
+
+            <p>
+                <br><strong>O que esse codigo faz ?</strong> Primeiro a gente pede o modulo axios.<br><br>
+
+                Depois exportamos nosso arquivo como um modulo<br><br>
+
+                Depois verificamos senão foi um bot que enviou a mensagem<br><br>
+
+                Em seguida fazemos um <strong>Request</strong> na Api, então criamos duas contantes dentro de uma função <br>
+            </p>
+
+            <p>
+                A primeira constate é a <strong>"Buy"</strong> é a outra é a <strong>"Sell"</strong><br><br>
+
+                As duas recebem praticamente o mesmo valor mundado apenas o final, uma <strong>.buy</strong> a outra <strong>.sell</strong><br><br>
+
+                E nessas constantes pegamos os valores do <strong>Json</strong> é logo depois convertemos para o <strong>Real</strong><br><br>
+            </p>
+
+            <p>
+                <strong>Ta Agora nos Temos Os Dados</strong> mas ainda o usuario não pode visualizar esses dados,<br>
+                vamos criar um metodo para ele visualizar<br><br>
+
+                Ainda no Arquivo <strong>"bitcoin.js"</strong> vamos fazer um
+                <a href="https://discordjs.guide/popular-topics/embeds.html">
+                    Embed.
+                </a>
+
+                E para fazer isso vamos fazer o seguinte codigo:<br>
+                <img src="./images/passo2/passo2_img10.png">
+            </p>
+
+            <p>
+                <br>Isso e um <strong>Embed</strong> para o Discord, onde nos passamos chaves e valores.<br><br>
+
+                Veja que ali em <strong>"Fields"</strong> nos passamos as duas constantes criadas anteriormente.<br>
+
+                <img id="passo2_img11" src="./images/passo2/passo2_img11.png">
+            </p>
+        </section>
+
+        <section title="finish">
+            <h2>Para Finalizar..</h2>
+
+            <p>
+                Estamos chegando ao fim Agora do nosso projeto ;(<br><br>
+            </p>
+
+            <p>
+                Mas ainda não acabou então mão na massa, Bom Depois de terminamos o arquivo <strong>"bitcoin.js"</strong><br>
+
+                vamos agora voltar para o Index. Ja no arquivo do index vamos agora chamar nosso <strong>Command</strong><br>
+
+                E pra isso vamos digitar o seguinte Codigo:<br>
+
+                <img id="passo2_img12" src="./images/passo2/passo2_img12.png">
+            </p>
+
+            <p>
+                <br><strong>O que esse codigo faz ?</strong> Ele primeiro le o diretorio <strong>"commands"</strong><br><br>
+
+                Depois ele retorna casa aja algum erro<br>
+                Depois ele verifica se o arquivo tem a extensão <strong>".js"</strong> caso não tenha ele
+                retorna<br>
+                Depois ele pega o arquivo e exibe o nome do arquivo no console.<br><br>
+
+                Depois ele pega nosso token e faz longin na Api do Discord.<br><br>
+
+                <br>caso tudo esteja certo devera acontecer isso ao digitar <strong>*bitcoin</strong><br>
+
+                <img id="sucesso" src="./images/sucesso.png">
+            </p>
+
+        </section>
+
+        <section title="Footer">
+            <footer class="footer">
+                <h2>E Aqui Chega Ao fim <span class="emoji">😄</span></h2>
+
+                <p>Author: Eduardo Santos</p>
+
+                <p>Me adicione nas redes sociais</p><br><br>
+
+                <a href="https://github.com/Chapadox">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 24 24"
+                        transform="translate(500, -50)">
+                         <path
+                             d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+
+                <a href="https://www.linkedin.com/in/destr00/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 24 24"
+                        transform="translate(530, -50)">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+
+                <a href="https://www.instagram.com/dudu_436/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="24" viewBox="0 0 24 24"
+                        transform="translate(550, -50)">
+                        <path
+                             d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </a>
+            </footer>
+        </section>
+    </div>
+    <section>
+        <div class="div-discord-logo">
+            <img class="discord-logo" src="https://blog.logomyway.com/wp-content/uploads/2020/12/discord-mascot.png">
+        </div>
+    </section>
+</body>
+
+</html>

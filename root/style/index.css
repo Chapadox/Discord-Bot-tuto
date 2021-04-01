@@ -1,0 +1,176 @@
+body{
+    max-width: 1200px;
+    margin: 0 auto !important;
+    background-image: url('https://wallpapercave.com/wp/wp2757874.gif');
+}
+
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    word-spacing: 0.8px;
+    color: white;
+    font-style: italic;
+    position: relative;
+    left: 40px;
+}
+
+img{
+    width: 1000px;
+    border-radius: 30px;
+    border: 3px solid #7289da;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    left: 50px;
+}
+
+
+ul{
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    font-style: italic;
+    letter-spacing: 0.2px;
+    word-spacing: 0.8px;
+    color: white;
+    position: relative;
+    left: 160px;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.2px;
+    word-spacing: 0.8px;
+    color: white;
+    font-style: italic;
+    padding: 30px 20px 0px;
+}
+
+svg {
+    height: 100px;
+}
+
+
+a{
+    color: white;
+}
+
+a:hover {
+    color: blueviolet;
+}
+
+/* Class */
+
+.div-body{
+    background-color: transparent;
+    border: 3px solid #7289da;
+    border-radius: 15px;
+}
+
+.passo2_img{
+    width: 520px;
+    position: relative;
+    left: 270px;
+}
+
+.emoji{
+    font-style: normal;
+}
+
+.titulo{
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: white;
+    font-style: italic;
+    letter-spacing: -0.4px;
+    word-spacing: -0.2px;
+    text-align: center;
+    padding: 300px 20px 20px;
+}
+
+.div-discord-logo{
+    position: relative;
+    margin-top: -1407%;
+    margin-left: 400px;
+}
+
+.discord-logo{
+    width: 340px;
+    border-radius: 700px;
+}
+
+
+/*  */
+
+
+/* IDs */
+
+#lista1, #lista2{
+    padding:0px 0px 15px ;
+}
+
+#passo1_img2, #passo1_img8{
+    width: 400px;
+    position: relative;
+    left: 378px;
+}
+
+#passo2_img1, #passo2_img2{
+    width: 600px;
+    position: relative;
+    left: 230px;
+}
+
+#prefix{
+    width: 600px;
+    position: relative;
+    left: 230px;
+}
+
+#passo2_img5{
+    width: 650px;
+    position: relative;
+    left: 220px;
+}
+
+#passo2_img7{
+    width: 800px;
+    position: relative;
+    left: 140px;
+}
+
+#passo2_img11{
+    width: 400px;
+    position: relative;
+    left: 360px;
+}
+#passo2_img12{
+    width: 550px;
+    position: relative;
+    left: 300px
+}
+
+#sucesso{
+    width: 500px;
+    position: relative;
+    left: 300px;
+}
+
+
+/* scrooll */
+::-webkit-scrollbar {
+    width:10px;
+    height: 10px;
+}
+     
+    ::-webkit-scrollbar-track {
+    background:#333;
+}
+     
+    ::-webkit-scrollbar-thumb {
+    background: #7289da;
+}
+
+/*  */
