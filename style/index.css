@@ -75,7 +75,7 @@ a:hover {
     font-style: normal;
 }
 
-.titulo{
+#titulo{
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     color: white;
@@ -83,7 +83,7 @@ a:hover {
     letter-spacing: -0.4px;
     word-spacing: -0.2px;
     text-align: center;
-    padding: 300px 20px 20px;
+    padding: 60px 20px 20px;
 }
 
 .div-discord-logo{
@@ -128,20 +128,21 @@ a:hover {
 @media screen and (min-width:1440px) {
 
     #sucesso{
+        width: 50%;
         position: relative;
-        left: 35%;
+        left: 40%;
     }
     
     #passo2_img12{
-        width: 80%;
+        width: 70%;
         position: relative;
-        left: 20%;
+        left: 30%;
     }
     
     #passo2_img11{
-        width: 60%;
+        width: 50%;
         position: relative;
-        left: 30%;
+        left: 39%;
     }
     
     #passo2_img10{
@@ -161,36 +162,38 @@ a:hover {
     }
     
     #passo2_img7{
+        width: 80%;
         position: relative;
-        left: 10%;
+        left: 20%;
     }
     
     #passo2_img5{
+        width: 80%;
         position: relative;
-        left: 10%;
+        left: 20%;
     }
     
     #passo2_img4{
         width: 60%;
         position: relative;
-        left: 40%;
+        left: 28%;
     }
     
     #passo2_img3{
         width: 60%;
         position: relative;
-        left: 40%;
+        left: 28%;
     }
     
     #passo2_img2{
         position: relative;
-        left: 40%;
+        left: 30%;
     }
     
     #prefix{
         width: 50%;
         position: relative;
-        left: 40%;
+        left: 30%;
     }
     
     #passo2_img1{
@@ -240,18 +243,18 @@ a:hover {
         left: 9%;
     }
     #github{
-        width: 5%;
+        width: 4%;
         border: none;
         padding-left: 480px;
         border-radius: 0px;
     }
     #instagram{
-        width: 5%;
+        width: 4%;
         border: none;
         border-radius: 0px;
     }
     #linkedin{
-        width: 5%;
+        width: 4%;
         border: none;
         padding-left: 20px;
         padding-right: 20px;
@@ -331,18 +334,18 @@ a:hover {
     }
 
     #github{
-        width: 7%;
+        width: 5%;
         border: none;
         padding-left: 360px;
         border-radius: 0px;
     }
     #instagram{
-        width: 7%;
+        width: 5%;
         border: none;
         border-radius: 0px;
     }
     #linkedin{
-        width: 7%;
+        width: 5%;
         border: none;
         padding-left: 20px;
         padding-right: 20px;
@@ -488,7 +491,6 @@ a:hover {
         position: relative;
         left: 15%;
     }
-
     #github{
         width: 10%;
         border: none;
@@ -515,6 +517,28 @@ a:hover {
         position: relative;
         left: 4%;
     }
+
+    .logo{
+        width: 50%;
+        border-radius: 90px;
+        position: relative;
+        position: relative;
+        top: -14870px;
+        margin-left: 85px;
+        
+    }
+
+    #titulo{
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        color: white;
+        font-style: italic;
+        letter-spacing: -0.4px;
+        word-spacing: -0.2px;
+        text-align: center;
+        padding: 160px 20px 20px;
+    }
+
 
     #github{
         width: 10%;
